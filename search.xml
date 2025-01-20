@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Firefox 配置完美垂直标签页</title>
+      <link href="/posts/642239b7.html"/>
+      <url>/posts/642239b7.html</url>
+      
+        <content type="html"><![CDATA[<p>前言</p><p>我先把效果放在前面了哈<br><img src="https://www.helloimg.com/i/2025/01/20/678e1236d3354.png" alt="Firefox 配置完美垂直标签页.png"><br>可以看到这里我配置了非常完美的垂直标签页，并且隐藏掉了原本的水平标签页，先说一下这个方案的缺点：不支持 CSS 主题<br>由于隐藏掉原本的垂直标签页，虽然非常美观，但是这是用 CSS 主题实现的，要实现就得覆盖掉原有的 userChrome.css<br>扩展</p><p>要拥有垂直标签页，首先我们需要装一个扩展，以下扩展三选一即可<br>1.Sidebery 这是我个人最推荐的一个扩展，它可玩性非常高，设置选项丰富<br>2.树状标签页 如果不是那么折腾，但又想要一个垂直标签页，并且功能较为丰富，可以选用它<br>3.Tab Center Reborn 它的设置选项非常少<br>CSS 主题</p><p>出处：卡饭论坛 链接<br>若需要不通过卡饭论坛查看，下面是代码：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@-moz-document</span> url(<span class="string">&quot;chrome://browser/content/browser.xhtml&quot;</span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="selector-pseudo">:root</span><span class="selector-pseudo">:has</span>(<span class="selector-id">#browser</span> &gt; <span class="selector-id">#sidebar-box</span><span class="selector-pseudo">:is</span>(<span class="selector-attr">[sidebarcommand=<span class="string">&quot;treestyletab_piro_sakura_ne_jp-sidebar-action&quot;</span>]</span>,</span><br><span class="line">      <span class="selector-attr">[sidebarcommand=<span class="string">&quot;_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action&quot;</span>]</span>, <span class="selector-attr">[sidebarcommand=<span class="string">&quot;tabcenter-reborn_ariasuni-sidebar-action&quot;</span>]</span>, <span class="selector-attr">[sidebarcommand=<span class="string">&quot;treetabs_jagiello_it-sidebar-action&quot;</span>]</span>, <span class="selector-attr">[sidebarcommand=<span class="string">&quot;_8d808887-ed13-4931-9f5a-4c0bff979a5a_-sidebar-action&quot;</span>]</span>, <span class="selector-attr">[sidebarcommand=<span class="string">&quot;sidebartabs_asamuzak_jp-sidebar-action&quot;</span>]</span>, <span class="selector-attr">[sidebarcommand=<span class="string">&quot;_f463182b-f93b-4b6d-9a68-b5e9d6d0fd40_-sidebar-action&quot;</span>]</span>)<span class="selector-pseudo">:not</span>(<span class="selector-attr">[hidden=<span class="string">&quot;true&quot;</span>]</span>)) &#123;</span><br><span class="line"><span class="attr">--uc-control-width</span>: <span class="number">136.5px</span>;</span><br><span class="line">    <span class="comment">/** 默认模式控制按钮高度 */</span></span><br><span class="line">    <span class="attr">--uc-control-height</span>: <span class="number">40px</span>;</span><br><span class="line"></span><br><span class="line">    &amp;<span class="selector-attr">[uidensity=<span class="string">&quot;compact&quot;</span>]</span> &#123;</span><br><span class="line">      <span class="comment">/** 紧凑模式控制按钮高度 */</span></span><br><span class="line">      <span class="attr">--uc-control-height</span>: <span class="number">34px</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &amp;<span class="selector-attr">[uidensity=<span class="string">&quot;touch&quot;</span>]</span> &#123;</span><br><span class="line">      <span class="comment">/** 触控模式控制按钮高度 */</span></span><br><span class="line">      <span class="attr">--uc-control-height</span>: <span class="number">44px</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-id">#navigator-toolbox</span> &#123;</span><br><span class="line">      <span class="attribute">position</span>: relative;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &amp;<span class="selector-attr">[tabsintitlebar]</span> &#123;</span><br><span class="line">      <span class="selector-id">#titlebar</span><span class="selector-pseudo">:has</span>(<span class="selector-id">#toolbar-menubar</span><span class="selector-attr">[inactive=<span class="string">&quot;true&quot;</span>]</span>) &#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="selector-class">.titlebar-buttonbox-container</span> &#123;</span><br><span class="line">          <span class="attribute">background-color</span>: <span class="built_in">var</span>(--toolbar-bgcolor);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="selector-id">#titlebar</span> &#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="built_in">calc</span>(<span class="number">12px</span> + <span class="number">2</span> * <span class="built_in">var</span>(--toolbarbutton-inner-padding));</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.titlebar-buttonbox-container</span> &#123;</span><br><span class="line">        <span class="attribute">position</span>: absolute;</span><br><span class="line">        <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">@media</span> (<span class="attribute">-moz-bool-pref</span>: <span class="string">&quot;layout.css.osx-font-smoothing.enabled&quot;</span>) &#123;</span><br><span class="line">          <span class="attribute">right</span>: unset;</span><br><span class="line">          <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-id">#TabsToolbar</span> &#123;</span><br><span class="line">      <span class="attr">--tabs-navbar-shadow-size</span>: <span class="number">0px</span>;</span><br><span class="line"></span><br><span class="line">      &amp;&gt;*<span class="selector-pseudo">:not</span>(<span class="selector-class">.titlebar-buttonbox-container</span>) &#123;</span><br><span class="line">        <span class="attribute">display</span>: none;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.titlebar-buttonbox-container</span> &#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="built_in">var</span>(--uc-control-height, <span class="built_in">calc</span>(<span class="number">12px</span> + <span class="number">2</span> * <span class="built_in">var</span>(--toolbarbutton-inner-padding)));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 菜单栏未激活时，在菜单栏里的控制按钮就不显示，不然控制按钮重叠显示 */</span></span><br><span class="line">    <span class="selector-id">#toolbar-menubar</span><span class="selector-attr">[inactive=<span class="string">&quot;true&quot;</span>]</span> <span class="selector-class">.titlebar-buttonbox-container</span> &#123;</span><br><span class="line">      <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-id">#navigator-toolbox</span><span class="selector-pseudo">:has</span>(<span class="selector-id">#toolbar-menubar</span><span class="selector-attr">[inactive=<span class="string">&quot;true&quot;</span>]</span>) &#123;</span><br><span class="line">      &gt;<span class="selector-id">#nav-bar</span> &#123;</span><br><span class="line">        <span class="attribute">margin-inline</span>: <span class="number">0</span> <span class="built_in">var</span>(--uc-control-width);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">@media</span> (<span class="attribute">-moz-bool-pref</span>: <span class="string">&quot;layout.css.osx-font-smoothing.enabled&quot;</span>) &#123;</span><br><span class="line">          <span class="attribute">margin-inline</span>: <span class="built_in">var</span>(--uc-control-width) <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>现在，重启浏览器，打开之前安装的扩展，你应该能看到你的，完美的，垂直标签页了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Markdown 速成</title>
+      <link href="/posts/e6d7dc71.html"/>
+      <url>/posts/e6d7dc71.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>多数博客使用 Markdown 进行编写博文，并具有一些有趣的特性<br>段落</p><p>要创建段落，请使用空行来分隔。</p><p>这是一个段落。</p><p>这是另一个段落。</p><p>多个空格<br>小标题</p><p>要创建小标题，在小标题文本前添加至多六个 # 符号。# 符号的数量决定了小标题的级别。</p><h1 id="这是标题-1"><a href="#这是标题-1" class="headerlink" title="这是标题 1"></a>这是标题 1</h1><h2 id="这是标题-2"><a href="#这是标题-2" class="headerlink" title="这是标题 2"></a>这是标题 2</h2><h3 id="这是标题-3"><a href="#这是标题-3" class="headerlink" title="这是标题 3"></a>这是标题 3</h3><h4 id="这是标题-4"><a href="#这是标题-4" class="headerlink" title="这是标题 4"></a>这是标题 4</h4><h5 id="这是标题-5"><a href="#这是标题-5" class="headerlink" title="这是标题 5"></a>这是标题 5</h5><h6 id="这是标题-6"><a href="#这是标题-6" class="headerlink" title="这是标题 6"></a>这是标题 6</h6><p>这是标题 1<br>这是标题 2<br>这是标题 3<br>这是标题 4<br>这是标题 5<br>这是标题 6<br>粗体、斜体、高亮</p><p>格式化文本也可以使用编辑相关的快捷键。<br>样式 语法 示例 输出<br>粗体 ** ** 或 __ __ <strong>粗体文本</strong> 粗体文本<br>斜体 * * 或 _ _ <em>斜体文本</em> 斜体文本<br>删除线 ~~ ~~ <del>删除线文本</del> 删除线文本<br>粗体和嵌套斜体 ** ** 和 _ _ <strong>粗体和 <em>嵌套斜体</em> 文本</strong> 粗体和 嵌套斜体 文本<br>粗体和斜体 *** *** 或 ___ ___ <em><strong>粗体和斜体文本</strong></em> 粗体和斜体文本</p><p>如果需要将语法符号视为普通文本进行展示，需要在语法符号前加反斜杠进行转义。比如：</p><p><strong>这里的加粗会真正的加粗</strong></p><p>**这里的加粗不会真正的加粗**</p><p><em>这里的倾斜会真正的倾斜</em></p><p>*这里的倾斜不会真正的倾斜*</p><p>内部链接</p><p>Markdown 支持这种风格的内部链接：<br><a href="%E8%BF%90%E5%8A%A8%E4%B8%89%E5%AE%9A%E5%BE%8B.md">运动三定律</a></p><p>外部链接</p><p>如果要链接到外部URL，可以通过在方括号（[ ]）中填入描述链接的文本，然后在括号中（()）添加URL来创建内联链接。</p><p><a href="https://blog.sigechaishijie.us.kg/">思哥の博客</a></p><p>思哥の博客</p><p>在链接中转义空格</p><p>如果你的URL包含空格，必须用 %20 替换它们。</p><p>外部图片</p><p>你可以通过在外部链接前加上 ! 符号来在笔记中插入外部图片。</p><p><img src="https://history-computer.com/ModernComputer/Basis/images/Engelbart.jpg" alt="Engelbart"></p><p>恩格尔巴特</p><p>你可以通过在链接的锚文本中添加 |640x480 来更改图片尺寸，其中640是宽度，480是高度。</p><p><img src="https://history-computer.com/ModernComputer/Basis/images/Engelbart.jpg" alt="Engelbart|100x145"></p><p>如果只指定了宽度，图片会根据原始长宽比进行缩放。例如：</p><p><img src="https://history-computer.com/ModernComputer/Basis/images/Engelbart.jpg" alt="Engelbart|100"></p><p>Tip</p><p>如果要添加来自仓库内部的图片，你也可以使用嵌入图片语法。<br>引用</p><p>你可以在文本前加上 &gt; 符号来引用文本。</p><blockquote><p>人类面临着越来越复杂和紧迫的问题，他们有效应对这些问题的能力对于社会的稳定和持续发展至关重要。</p></blockquote><p>- 道格·恩格尔巴特，1961</p><p>人类面临着越来越复杂和紧迫的问题，他们有效应对这些问题的能力对于社会的稳定和持续发展至关重要。</p><ul><li>道格·恩格尔巴特，1961<br>Tip</li></ul><p>你可以通过在引用中的第一行添加 [!信息] 来将引用变成标注。<br>列表</p><p>你可以在文本前加上 -、* 或 + 来创建无序列表。</p><ul><li><p>第一条</p></li><li><p>第二条</p></li><li><p>第三条</p><p>第一条<br>第二条<br>第三条</p></li></ul><p>要创建有序列表，每行以数字加上 . 开头。</p><ol><li><p>第一条</p></li><li><p>第二条</p></li><li><p>第三条</p><p>第一条<br>第二条<br>第三条</p></li></ol><p>任务列表</p><p>要创建任务列表，每个列表项以连字符和空格开头，后跟 [ ]。</p><ul><li><p><input checked="" disabled="" type="checkbox"> 这是已完成的任务。</p></li><li><p><input disabled="" type="checkbox"> 这是未完成的任务。</p><p>这是已完成的任务。<br>这是未完成的任务。</p></li></ul><p>你可以在阅读视图中通过点击复选框来切换任务状态。<br>Tip</p><p>你可以通过在括号内添加字符 x 来将任务标记为已完成状态。</p><ul><li><p><input checked="" disabled="" type="checkbox"> 牛奶</p><p>牛奶</p></li></ul><p>嵌套列表</p><p>所有类型的列表都支持嵌套。</p><p>要创建嵌套列表，请缩进一个或多个列表项：</p><ol><li><p>第一条</p><ol><li>有序嵌套列表项</li></ol></li><li><p>第二条</p><ul><li>无序嵌套列表项</li></ul><p>第一条<br>有序嵌套列表项<br>第二条<br>无序嵌套列表项</p></li></ol><p>同样，你可以通过缩进一个或多个列表项来创建嵌套任务列表：</p><ul><li><p><input disabled="" type="checkbox"> 任务项 1</p><ul><li><input disabled="" type="checkbox"> 子任务 1</li></ul></li><li><p><input disabled="" type="checkbox"> 任务项 2</p><ul><li><input disabled="" type="checkbox"> 子任务 1</li></ul><p>任务项 1<br>子任务 1<br>任务项 2<br>子任务 1</p></li></ul><p>使用 Tab 或 Shift+Tab 来缩进或取消缩进一个或多个已选择的列表项，以便快速地组织列表。<br>水平线</p><p>你可以在单独的一行上使用三个或更多星号 ***、短横线 — 或下划线 ___ 来添加水平线。这些分隔符号里允许有空格。</p><hr><hr><hr><hr><hr><hr><hr><hr><hr><p>代码</p><p>你可以在段落里插入代码，或将其放在代码块中。<br>行内代码</p><p>你可以使用一对反引号在句子插入代码。</p><p><code>反引号</code>中的文本将被格式化为代码。</p><p>反引号中的文本将被格式化为代码。</p><p>如果要在行内代码中使用反引号，请用双反引号将其包围，比如： 这是一句内部带有<code>反引号</code>的代码。</p><p>这是一句内部带有<code>反引号</code>的代码<br>代码块</p><p>要创建一个代码块，请用三个反引号括住代码。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Desktop</span><br></pre></td></tr></table></figure><p>cd ~&#x2F;Desktop</p><p>你也可以通过使用 Tab 键或4个空格缩进文本来创建代码块。</p><p>cd ~&#x2F;Desktop<br>你可以在开头的三个反引号后添加语言名称来为代码块添加语法高亮。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fancyAlert</span>(<span class="params">arg</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(arg) &#123;</span><br><span class="line">    $.<span class="title function_">facebox</span>(&#123;<span class="attr">div</span>:<span class="string">&#x27;#foo&#x27;</span>&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>function fancyAlert(arg) {<br>if(arg) {<br>$.facebox({div:’#foo’})<br>}<br>}</p><p>脚注</p><p>你可以使用以下语法向笔记中添加脚注[1]：</p><p>这是一个简单的脚注<a href="%E8%BF%99%E6%98%AF%E8%84%9A%E6%B3%A8%E7%9A%84%E5%86%85%E5%AE%B9%E6%96%87%E6%9C%AC%E3%80%82">^1</a>。</p><p>你也可以在句子中使用行内脚注。请注意插入符号在方括号外，将脚注内容写在方括号内。</p><p>你也可以使用内联脚注。^[这是一个内联脚注。]</p><p>Note</p><p>行内脚注仅在阅读视图中有效，不适用于实时预览。</p><pre><code>可以编写跨越多行的脚注。</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Happy New Year</title>
+      <link href="/posts/2a70ced8.html"/>
+      <url>/posts/2a70ced8.html</url>
+      
+        <content type="html"><![CDATA[<p>祝各位，新年快乐！</p><p>To all of you, happy new year!</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日常 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日常 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>快速搭建出一个基于 Gmeek 的博客</title>
+      <link href="/posts/348216bd.html"/>
+      <url>/posts/348216bd.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="你需要"><a href="#你需要" class="headerlink" title="你需要"></a>你需要</h2><p><a href="https://www.dogfight360.com/blog/686/">Steam Community 302</a> 加速 GitHub<br>一双灵巧的手和一个聪明的大脑<br>一个 GitHub 账户，若没有，注册即可</p><h1 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h1><h2 id="第一步：Fork-仓库"><a href="#第一步：Fork-仓库" class="headerlink" title="第一步：Fork 仓库"></a>第一步：Fork 仓库</h2><p>前往 <a href="https://github.com/Meekdai/Gmeek/">Gmeek 博客框架的 GitHub 仓库</a><br>点击 Fork，弹出的框框里随便取一个名字，如果你要使用自定义域名的话，请使用你的用户名 + github.io 比如我就叫 Sigechaishijie.github.io</p><h2 id="第二步：启用-Pages"><a href="#第二步：启用-Pages" class="headerlink" title="第二步：启用 Pages"></a>第二步：启用 Pages</h2><p>前往项目主页，点击 Settings -&gt; Pages -&gt; Build and deployment -&gt; Source，将选项改成 GitHub Actions</p><h1 id="如何写作"><a href="#如何写作" class="headerlink" title="如何写作"></a>如何写作</h1><p>你可以点击 GitHub 仓库主页中的 Issues，随后根据提示操作即可，注意，在写作完成后，至少选择一个 Label，使用 Markdown 语法写作，关于 Markdown 的使用教程，我会另外再出一个博文</p><h1 id="如果想使用自定义域名"><a href="#如果想使用自定义域名" class="headerlink" title="如果想使用自定义域名"></a>如果想使用自定义域名</h1><p>获取一个域名，然后在仓库设置里将仓库的域名绑定到你的域名上，随后在你的 DNS 服务里将你的仓库地址 CNAME 到你的域名上，然后在仓库里的 config.json 加上 “homeUrl” 字段，例如</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;homeUrl&quot;</span><span class="punctuation">:</span><span class="string">&quot;http://blog.meekdai.com&quot;</span> <span class="comment">// 如果不是最后一行的话需要加上半角逗号</span></span><br></pre></td></tr></table></figure><h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p>修改 config.json 可以达到主页自定义的目的，但是想要让修改生效，需要通过Actions -&gt; build Gmeek -&gt; Run workflow -&gt; 里面的按钮全局重新生成一次<br>通过 <a href="https://github.com/https://%E4%BD%A0%E7%9A%84%E7%94%A8%E6%88%B7%E5%90%8D.github.io/%E4%BB%93%E5%BA%93%E5%90%8D">https:&#x2F;&#x2F;你的用户名.github.io&#x2F;（如果没有使用用户名 + github.io，那么增加仓库名）</a> 可以访问你的博客</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+            <tag> Gmeek </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>迁移博客 ing……</title>
+      <link href="/posts/de8a24c4.html"/>
+      <url>/posts/de8a24c4.html</url>
+      
+        <content type="html"><![CDATA[<p>Hexo 博客弄好了，迁移博客 ing……</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日常 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日常 </tag>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
